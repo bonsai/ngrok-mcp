@@ -1,0 +1,23 @@
+{
+  "name": "ngrok-mcp",
+  "type": "remote",
+  "transport": "streamable-http",
+  "url": "https://mcp.ngrok.com/mcp",
+  "auth": {
+    "method": "oauth",
+    "scopes": "full (account role permissions; OAuth is not read-only)",
+    "note": "初回接続時にブラウザで OAuth 同意。OAuth はフル権限で動く（ngrok 公式: Access isn't read-only）。読み取り専用に絞るなら read スコープのみの PAT に載せ替える。PAT / agent authtoken は使わない。"
+  },
+  "opencode": {
+    "config": "~/.config/opencode/opencode.jsonc",
+    "key": "mcp.ngrok",
+    "entry": { "type": "remote", "url": "https://mcp.ngrok.com/mcp", "enabled": true }
+  },
+  "account": "bonsai (Free)",
+  "related": {
+    "tunnel": "<reserved-domain>.ngrok-free.dev -> http://localhost:8765 (muse-bridge)",
+    "tunnel_restart": "ngrok start muse-bridge（named tunnel。ngrok.yml に定義済み: 予約ドメイン rd_… に固定）",
+    "local_admin_api": "http://127.0.0.1:4040/api/tunnels",
+    "agent_config": "%LOCALAPPDATA%/ngrok/ngrok.yml"
+  }
+}
