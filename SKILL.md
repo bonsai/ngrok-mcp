@@ -35,6 +35,12 @@ ngrok 公式のリモート MCP サーバー。OAuth ログインした ngrok �
   - `check` — authtoken を使い捨てトンネル起動で実検証（dashboard 不要。token 値は表示しない）
   - `doctor` — version / config / named tunnels / agent 稼働状態
   - `login-help` — dashboard が本当に必要な作業の一覧と、ブラウザログインが壊れた時のチェックリスト
+- ログ運用: 本フォルダの `ngrok-log.ps1`（2026-11-19 追加）
+  - `up [name]` — named tunnel を**ログファイル付きバックグラウンド**起動（既定 muse-bridge。4040 が生きていれば再利用）
+  - `tail` / `errs` — JSON ログの整形表示 / ERROR・WARN のみ（`%LOCALAPPDATA%\ngrok\logs\<name>.log`）
+  - `requests` — 4040 の request capture（HTTP トンネルのリクエスト一覧）
+  - `down` — 自分が起動した agent を停止（PID 記録ベース。外部起動分は触らない）/ `status` — 稼働状態
+  - 注意: `--log` は**パスそのもの**を受ける（`--log=file --logfile=` は v2 形式で v3 では無効）
 
 ## 関連 / Related
 
